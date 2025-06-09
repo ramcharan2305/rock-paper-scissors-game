@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Requirement Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Attendance Requirement Calculator</h2>
+    <p>Total Classes: 234</p>
+
+    <label for="desiredPercentage">Required Attendance Percentage:</label>
+    <input type="number" id="desiredPercentage" placeholder="Enter desired percentage">
+
+    <button onclick="calculateRequiredAttendance()">Calculate</button>
+    
+    <h3 id="result"></h3>
+
+    <script>
+        function calculateRequiredAttendance() {
+            let totalClasses = 234;
+            let desiredPercentage = document.getElementById("desiredPercentage").value;
+
+            if (desiredPercentage <= 0 || desiredPercentage > 100) {
+                document.getElementById("result").innerText = "Please enter a valid percentage!";
+                return;
+            }
+
+            let requiredClasses = Math.ceil((desiredPercentage / 100) * totalClasses);
+            document.getElementById("result").innerText = "You need to attend " + requiredClasses + " classes to meet the desired percentage.";
+        }
+    </script>
+</body>
+</html>
